@@ -3,6 +3,8 @@ spring:
   devtools:
     restart:
       enabled: false
+  profiles:
+    active: druid
 
   # H2 DATABASE CONFIG
   datasource:
@@ -14,6 +16,7 @@ spring:
     platform: h2
     initialization-mode: always
     continue-on-error: true
+    type: com.alibaba.druid.pool.DruidDataSource
   h2:
     console:
       enabled: true
