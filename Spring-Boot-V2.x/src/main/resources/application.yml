@@ -47,3 +47,9 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
+
+# 日志配置
+logging:
+  level:
+    com.lsheng.boot: debug
+    org.springframework: warn
