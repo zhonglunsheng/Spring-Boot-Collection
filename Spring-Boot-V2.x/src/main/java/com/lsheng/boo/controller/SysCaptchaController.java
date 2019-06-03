@@ -1,4 +1,4 @@
-package com.ruoyi.web.controller.system;
+package com.lsheng.boo.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -8,13 +8,15 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.lsheng.boo.annotation.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
-import com.ruoyi.common.core.controller.BaseController;
 
 /**
  * 图片验证码（支持算术形式）
@@ -22,9 +24,7 @@ import com.ruoyi.common.core.controller.BaseController;
  * @author ruoyi
  */
 @Controller
-@RequestMapping("/captcha")
-public class SysCaptchaController extends BaseController
-{
+public class SysCaptchaController {
     @Resource(name = "captchaProducer")
     private Producer captchaProducer;
 
@@ -34,6 +34,7 @@ public class SysCaptchaController extends BaseController
     /**
      * 验证码生成
      */
+    @Log(title = "验证码生成", isSaveRequestData = true)
     @GetMapping(value = "/captchaImage")
     public ModelAndView getKaptchaImage(HttpServletRequest request, HttpServletResponse response)
     {
