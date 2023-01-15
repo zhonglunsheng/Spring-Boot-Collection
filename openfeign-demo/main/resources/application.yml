@@ -1,0 +1,22 @@
+server:
+  port: 8110
+
+feign:
+  client:
+    config:
+      default:
+        logger-level: full
+        connect-timeout: 1000
+        read-timeout: 1000
+        retryer: vip.zhonglunsheng.openfeign.demo.client.MyRetryer
+      km:
+        logger-level: full
+        connect-timeout: 1000
+        read-timeout: 1000
+logging:
+  level:
+    vip.zhonglunsheng: debug
+
+client:
+  token:
+    km: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4ifQ.Hvk2yCiDJ6RAOCwXEBaoskpZKsu_XXn54CJCzVQR-mI
